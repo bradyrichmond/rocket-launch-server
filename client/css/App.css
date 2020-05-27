@@ -49,10 +49,12 @@ html, body {
 .stream-link a, .stream-link a:active, .stream-link a:visited, .stream-link a:link  {
   text-decoration: none;
   color: #ffffff;
+  text-align: center;
 }
 
 .stream-link a:hover {
   cursor: pointer;
+  text-align: center;
 }
 
 .launch-date {
