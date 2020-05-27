@@ -9,29 +9,26 @@ class App extends React.Component {
     super();
     this.state = {
       loggedIn: false,
-      displayTime: '',
+      displayTime: ''
     }
     this.setDisplayTime = this.setDisplayTime.bind(this);
   }
 
   setDisplayTime() {
-    let display = moment("2020-05-27 21:33").utc().diff(moment().utc());
-    let displayTime = moment(display).format("HH:mm:ss");
+    let display = moment("2020-05-30 21:22").utc().diff(moment().utc());
+    let displayTime = `${moment(display).format("DD") - 1} days ${moment(display).format("HH:mm:ss")}`;
     this.setState({displayTime});
   }
 
   componentDidMount() {
-    setInterval(this.setDisplayTime , 1000)
+    setInterval(this.setDisplayTime, 1000)
   }
 
   render() {
     return (
       <div className="App">
         <canvas id="demo-canvas"></canvas>
-        <div className='launch-date'>SpaceX launch in {this.state.displayTime}</div>
-        <div className='stream-link'>
-          <a href="https://www.youtube.com/watch?v=Aymrnzianf0" target='_blank' rel='noopener noreferrer'>Click here for stream!</a>
-        </div>
+        <div className='launch-date'>SpaceX launch estimated: {this.state.displayTime}</div>
       </div>
     );
   }
