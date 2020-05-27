@@ -62,6 +62,10 @@ html, body {
   z-index: 100;
 }
 
+.google-login {
+  z-index: 100;
+}
+
 @media only screen and (max-width: 900px) {
   #root {
     font-size: 3rem;

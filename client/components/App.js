@@ -1,5 +1,7 @@
 import React from 'react';
 import '../css/App.css';
+import axios from 'axios';
+import GoogleLogin from 'react-google-login';
 import moment from 'moment';
 
 class App extends React.Component {
@@ -7,13 +9,13 @@ class App extends React.Component {
     super();
     this.state = {
       loggedIn: false,
-      displayTime: ''
+      displayTime: '',
     }
     this.setDisplayTime = this.setDisplayTime.bind(this);
   }
 
   setDisplayTime() {
-    let display = moment("2020-05-27 20:33").utc().diff(moment().utc());
+    let display = moment("2020-05-27 21:33").utc().diff(moment().utc());
     let displayTime = moment(display).format("HH:mm:ss");
     this.setState({displayTime});
   }

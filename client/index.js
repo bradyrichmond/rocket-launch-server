@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppWrapper from './components/App';
-import { CookiesProvider, withCookies } from 'react-cookie';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CookiesProvider>
-      <AppWrapper />
-    </CookiesProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
