@@ -42,6 +42,7 @@ html, body {
 .stream-link {
   font-size: 4rem;
   z-index: 100;
+  text-align: center;
   padding: 2rem;
 }
 
