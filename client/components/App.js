@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   setDisplayTime() {
-    let display = moment("2020-05-30 20:22").utc().diff(moment().utc());
+    let display = moment("2020-06-04 00:55").utc().diff(moment().utc());
     let displayTime = `${moment(display).format("DD") - 1} days ${moment(display).format("HH:mm:ss")}`;
     this.setState({displayTime});
   }
