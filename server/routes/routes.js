@@ -52,7 +52,8 @@ router.get('/launches/next', async function(req, res) {
 router.get('/launches', async function(req, res) {
   let now = Date.now();
   collection.find({ launchTimeUnix: {$gt: now}})
-  .sort({ launchTimeUnix: -1 })
+  .sort({ launchTimeUnix: 1 })
+  .skip(1)
   .toArray()
   .then(launches => {
     launches.forEach(console.log);
@@ -60,6 +61,13 @@ router.get('/launches', async function(req, res) {
   })
   .catch(err => console.error(`Failed to find documents: ${err}`));
 })
+
+let getUnixTimestamp = function(input) {
+  let timeString = input.split(" - ").map(function (date){
+    return Date.parse(date+"+0000");
+  }).join(" - ");
+  return timeString;
+}
 
 router.post('/launches', async function(req, res) {
   try {
