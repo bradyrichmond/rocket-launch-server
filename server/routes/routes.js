@@ -39,14 +39,16 @@ router.post('/logincomplete', async function(req, res) {
   }
 });
 
-router.get('/launches/next', async function(req, res) {
+router.get('/launches/next', function(req, res) {
   let now = Date.now();
-  collection.findOne({launchTimeUnix: {$gt: now}})
-  .then(launch => {
-    console.log(launch);
-    res.status(200).send(launch);
+  collection.find({ launchTimeUnix: {$gt: now}})
+  .sort({ launchTimeUnix: 1 })
+  .limit(1)
+  .toArray()
+  .then(launches => {
+    res.status(200).send(launches[0]);
   })
-  .catch(err => console.error(`Failed to find document: ${err}`));
+  .catch(err => console.error(`Failed to find documents: ${err}`));
 })
 
 router.get('/launches', async function(req, res) {
